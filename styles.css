@@ -1,0 +1,220 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: url(bg.jpg);
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6rem;
+  padding: 0 8%;
+  z-index: 1000;
+  background: #222;
+}
+
+.wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #4070f4;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.menu a {
+  font-size: 1.2rem;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.menu li a:hover {
+  color: #4070f4;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.btn {
+  padding: 0.8rem 2.5rem;
+  background: #4070f4;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn:hover {
+  background: #1450f4;
+}
+
+.toggle-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.mega-menu {
+  position: absolute;
+  width: 100%;
+  background: #222;
+  top: 75%;
+  left: 0;
+  padding: 2rem;
+  box-shadow: 0 8px 10px rgba(255, 255, 255, 0.2);
+  border-radius: 0 0 10px 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+.menu li:hover .mega-menu {
+  visibility: visible;
+  opacity: 1;
+  top: 90%;
+}
+
+.mega-menu .mega-content {
+  width: 100%;
+  display: flex;
+}
+
+.col {
+  width: calc(100% / 5);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 1.2rem;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.col:nth-child(1) {
+  border-left: 0;
+}
+
+.menu .toggle-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+@media (max-width: 1200px) {
+  .nav {
+    padding: 0 5%;
+  }
+
+  .menu {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  .menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    max-width: 450px;
+    height: 100vh;
+    background: #222;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    flex-direction: column;
+    justify-content: center;
+    transition: 0.5s;
+  }
+
+  .mega-menu {
+    width: 100%;
+    height: 100%;
+    background: #222;
+    top: 0;
+    left: -100%;
+    box-shadow: none;
+    border-radius: 0;
+    overflow: auto;
+  }
+
+  .menu li:hover .mega-menu {
+    left: 0;
+    top: 0;
+  }
+
+  .mega-menu .mega-content {
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+
+  .col {
+    width: 100%;
+    border-left: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-block: 1rem;
+  }
+
+  .col:last-child {
+    border: none;
+  }
+
+  .mega-menu::-webkit-scrollbar {
+    width: 0.2rem;
+  }
+
+  .mega-menu::-webkit-scrollbar-track {
+    background: #111;
+  }
+
+  .mega-menu::-webkit-scrollbar-thumb {
+    background: #fff;
+  }
+
+  .toggle-btn {
+    display: block;
+  }
+
+  .nav.active .menu {
+    left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .btn {
+    display: none;
+  }
+}
